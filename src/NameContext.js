@@ -2,12 +2,8 @@ import React from "react";
 
 const NameContext = React.createContext();
 
-const NameProvider = props => {
-  return (
-    <NameContext.Provider value={"David"}>
-      {props.children}
-    </NameContext.Provider>
-  );
+const NameProvider = ({ value, children }) => {
+  return <NameContext.Provider value={value}>{children}</NameContext.Provider>;
 };
 
 const useNameContext = () => {
