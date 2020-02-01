@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NameContext, NameProvider } from "./NameContext";
+import { useNameContext, NameProvider } from "./NameContext";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
 };
 
 const HelloDisplay = () => {
-  const name = useContext(NameContext);
+  const name = useNameContext();
   return <h1>Hello, {name}!</h1>;
 };
 

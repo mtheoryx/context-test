@@ -10,4 +10,12 @@ const NameProvider = props => {
   );
 };
 
-export { NameContext, NameProvider };
+const useNameContext = () => {
+  const context = React.useContext(NameContext);
+  if (context === undefined) {
+    throw new Error("useNameContext must be used within a NameProvider");
+  }
+  return context;
+};
+
+export { useNameContext, NameProvider };
