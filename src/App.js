@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
+const HelloContext = React.createContext();
+// {
+//   Provider: Object,
+//   Consumer: Object,
+//   ...other stuff
+// }
+
+const HelloDisplay = () => {
+  const name = useContext(HelloContext);
+  return <h1>Hello, {name}!</h1>;
+};
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HelloContext.Provider value={"David"}>
+      <HelloDisplay />
+    </HelloContext.Provider>
   );
-}
+};
 
 export default App;
