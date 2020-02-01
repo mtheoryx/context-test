@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { NameProvider } from "./NameContext";
 import HelloDisplay from "./components/HelloDisplay";
+const faker = require("faker");
 
 const AppWrapper = styled.div`
   width: 300px;
@@ -30,16 +31,10 @@ const Button = styled.button`
 
 const App = () => {
   const [name, setName] = useState("David");
-  const handleChangeName = e => {
-    e.preventDefault();
-    if (name === "David") {
-      setName("Robert");
-    } else {
-      setName("David");
-    }
+  const handleChangeName = () => {
+    setName(faker.name.firstName());
   };
-  const handleResetName = e => {
-    e.preventDefault();
+  const handleResetName = () => {
     setName("David");
   };
   return (
